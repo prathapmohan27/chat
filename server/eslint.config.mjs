@@ -26,29 +26,45 @@ export default tseslint.config(
   },
   {
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-floating-promises': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-unsafe-argument': 'warn',
-      // New: Backend-relevant
+      '@typescript-eslint/no-unsafe-assignment': 'warn',
+      '@typescript-eslint/no-unsafe-call': 'warn',
+      '@typescript-eslint/no-unsafe-member-access': 'warn',
+
       '@typescript-eslint/explicit-function-return-type': [
         'error',
         {
-          allowExpressions: false,
-          allowTypedFunctionExpressions: false,
+          allowExpressions: true,
+          allowTypedFunctionExpressions: true,
         },
       ],
+      '@typescript-eslint/explicit-module-boundary-types': 'warn',
+      '@typescript-eslint/prefer-readonly': 'warn',
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
+      ],
 
-      '@typescript-eslint/explicit-module-boundary-types': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-return-await': 'error',
+      'no-useless-catch': 'error',
+      eqeqeq: ['error', 'always'],
+      curly: ['error', 'all'],
 
-      '@typescript-eslint/require-await': 'warn', // async functions must await
-      '@typescript-eslint/prefer-readonly': 'warn', // encourage readonly for immutability
-      '@typescript-eslint/consistent-type-imports': 'error', // enforce type-only imports
-
-      'no-console': ['warn', { allow: ['warn', 'error'] }], // allow error logging only
-      'no-return-await': 'error', // avoid redundant await
-      'no-useless-catch': 'error', // catch blocks must do something useful
-      eqeqeq: ['error', 'always'], // already included
-      curly: ['error', 'all'], // already included
+      // backend strictness
+      'prefer-const': 'error',
+      'no-var': 'error',
     },
+    overrides: [
+      {
+        files: ['src/**/*.dto.ts'],
+        rules: {
+          '@typescript-eslint/no-unsafe-call': 'off',
+          '@typescript-eslint/no-unsafe-member-access': 'off',
+        },
+      },
+    ],
   },
 );
