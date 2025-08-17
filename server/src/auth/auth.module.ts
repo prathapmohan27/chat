@@ -11,7 +11,7 @@ import { AuthController } from './auth.controller';
     UsersModule,
     JwtModule.register({
       secret: env.JWT_SECRET,
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '7d' },
     }),
   ],
   providers: [AuthService, LocalStrategyService],
