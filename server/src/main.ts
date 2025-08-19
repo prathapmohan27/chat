@@ -1,14 +1,17 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { JwtGuard } from './guard/jwt/jwt.guard';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
+  const reflector = app.get(Reflector);
+  app.useGlobalGuards(new JwtGuard(reflector));
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // strip properties not in DTO
-      forbidNonWhitelisted: true, // throw error for unexpected props
-      transform: true, // auto-transform payloads to DTO instances
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
     }),
   );
   await app.listen(process.env.PORT ?? 3000);
