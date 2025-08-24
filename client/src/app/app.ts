@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -7,6 +7,4 @@ import { RouterOutlet } from '@angular/router';
   template: ` <router-outlet /> `,
   styles: ``,
 })
-export class App {
-  protected readonly title = signal('chat');
-}
+export class App {}
