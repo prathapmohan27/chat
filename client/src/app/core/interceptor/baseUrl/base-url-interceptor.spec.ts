@@ -2,9 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { HttpInterceptorFn } from '@angular/common/http';
 
 import { baseUrlInterceptor } from './base-url-interceptor';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('baseUrlInterceptor', () => {
-  const interceptor: HttpInterceptorFn = (req, next) => 
+  const interceptor: HttpInterceptorFn = (req, next) =>
     TestBed.runInInjectionContext(() => baseUrlInterceptor(req, next));
 
   beforeEach(() => {

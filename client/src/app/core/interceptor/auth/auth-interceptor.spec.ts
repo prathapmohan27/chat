@@ -2,9 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { HttpInterceptorFn } from '@angular/common/http';
 
 import { authInterceptor } from './auth-interceptor';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('authInterceptor', () => {
-  const interceptor: HttpInterceptorFn = (req, next) => 
+  const interceptor: HttpInterceptorFn = (req, next) =>
     TestBed.runInInjectionContext(() => authInterceptor(req, next));
 
   beforeEach(() => {
