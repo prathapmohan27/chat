@@ -8,7 +8,7 @@ export class Auth {
   readonly #jwtHelper: JwtHelperService = inject(JwtHelperService);
   readonly #token = 'access_token';
 
-  getToken(): string {
+  getAuthToken(): string {
     return localStorage.getItem(this.#token) ?? '';
   }
 
@@ -21,7 +21,7 @@ export class Auth {
   }
 
   isAuthenticated(): boolean {
-    const token = this.getToken();
+    const token = this.getAuthToken();
     return token != null && !this.#jwtHelper.isTokenExpired(token);
   }
 }
