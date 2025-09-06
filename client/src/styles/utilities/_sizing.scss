@@ -1,0 +1,11 @@
+@each $key, $val in $heights {
+  .h-#{$key} {
+    height: $val;
+  }
+}
+
+@each $key, $val in $widths {
+  .w-#{$key} {
+    width: $val;
+  }
+}

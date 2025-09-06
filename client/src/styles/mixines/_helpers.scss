@@ -1,0 +1,18 @@
+@mixin shadow($x: 0, $y: 2px, $blur: 8px, $color: rgba(0, 0, 0, 0.15)) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin transition($props: all, $time: 0.3s, $ease: ease-in-out) {
+  transition: $props $time $ease;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

@@ -1,0 +1,10 @@
+@mixin fluid-font($min, $max) {
+  font-size: clamp($min, 2vw, $max);
+}
+
+@mixin text-truncate($lines: 1) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
