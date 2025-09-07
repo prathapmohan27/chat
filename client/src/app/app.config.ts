@@ -9,8 +9,6 @@ import {
   withFetch,
   withInterceptors,
 } from '@angular/common/http';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeuix/themes/aura';
 
 import { routes } from './app.routes';
 import { API_URL } from './core/token/api-url.token';
@@ -27,10 +25,5 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([baseUrlInterceptor, authInterceptor]),
       withFetch(),
     ),
-    providePrimeNG({
-      theme: {
-        preset: Aura,
-      },
-    }),
   ],
 };

@@ -1,18 +1,3 @@
-// Base
-@import "base/variables";
-@import "base/globals";
-
-// Mixins
-@import "mixins/flex";
-@import "mixins/layout";
-@import "mixins/typography";
-@import "mixins/helpers";
-@import "mixins/respond";
-
-// Utilities
-@import "utilities/spacing";
-@import "utilities/sizing";
-@import "utilities/radius";
-@import "utilities/fonts";
-@import "utilities/flex";
-@import "utilities/text";
+@import "./base/index";
+@import "./mixins/index";
+@import "./utilities/index";

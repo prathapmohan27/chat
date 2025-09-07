@@ -1,3 +1,5 @@
+@use "../base/index" as *;
+
 @each $key, $val in $heights {
   .h-#{$key} {
     height: $val;

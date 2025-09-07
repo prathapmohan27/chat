@@ -1,3 +1,5 @@
+@use "../base/index" as *;
+
 @each $key, $val in $font-sizes {
   .fs-#{$key} {
     font-size: $val;
